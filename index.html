@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ege Palamutlu’s Portfolio</title>
+  <meta name="description" content="Portfolio of Ege Palamutlu: bachelor thesis, robotics projects, experience, skills, and contact."/>
+  <style>
+    :root{
+      --bg:#070A10;
+      --text:#EAF0FF;
+      --muted:#A7B3C7;
+      --border:rgba(255,255,255,.10);
+      --accent:#7DD3FC;
+      --shadow: 0 18px 45px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(900px 500px at 18% 18%, rgba(125,211,252,.10), transparent 55%),
+        radial-gradient(900px 500px at 85% 18%, rgba(167,139,250,.10), transparent 55%),
+        radial-gradient(1000px 700px at 50% 100%, rgba(125,211,252,.06), transparent 60%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(1120px,92vw);margin:0 auto}
+
+    .nav{
+      position:sticky; top:0; z-index:20;
+      background: rgba(7,10,16,.70);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .navin{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:12px;
+    }
+    .brand{
+      font-weight:700;
+      color:var(--muted);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .navlinks{display:flex; flex-wrap:wrap; gap:14px; color:var(--muted)}
+    .navlinks a{color:var(--muted)}
+    .navlinks a:hover{color:var(--text); text-decoration:none}
+
+    .hero{padding:56px 0 22px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      background: rgba(125,211,252,.10);
+      border: 1px solid rgba(125,211,252,.22);
+      color: var(--accent);
+      font-size: 13px;
+    }
+    h1{
+      font-size: clamp(34px, 4.5vw, 58px);
+      margin: 12px 0 10px;
+      line-height: 1.05;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      color:var(--muted);
+      max-width: 80ch;
+      line-height: 1.65;
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .section{padding: 28px 0}
+    .section h2{margin:0 0 10px; font-size: 22px}
+    .lead{color:var(--muted); margin:0 0 14px; line-height:1.6; max-width: 90ch}
+
+    .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:14px}
+    .card{
+      grid-column: span 6;
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .span7{grid-column: span 7}
+    .span5{grid-column: span 5}
+    .span12{grid-column: span 12}
+    @media (max-width: 900px){
+      .card, .span7, .span5, .span12{grid-column: span 12}
+    }
+
+    .k{
+      color:var(--muted);
+      font-size:12px;
+      text-transform: uppercase;
+      letter-spacing:.08em;
+      margin-bottom: 8px;
+    }
+    .title{
+      font-size: 18px;
+      margin: 0 0 6px;
+      line-height:1.25;
+    }
+    .meta{color:var(--muted); font-size: 13px; margin-bottom: 10px}
+    .hr{height:1px;background:var(--border);margin:8px 0}
+    ul{margin:8px 0 0; padding-left:18px; color:var(--muted); line-height:1.6}
+    li{margin:6px 0}
+
+    .media{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      overflow: hidden;
+    }
+    video{display:block; width:100%; height:auto}
+    img{display:block; width:100%; height:auto}
+
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    @media (max-width: 900px){ .twoCol{grid-template-columns: 1fr;} }
+
+    /* Bottom GIF row: pull it UP hard to remove the blank area under Tools (matches your screenshot) */
+    .tileRow{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:-26px;     /* stronger pull up */
+    }
+    @media (max-width: 900px){ .tileRow{grid-template-columns: 1fr;} }
+    .tile{
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      overflow: hidden;
+      background: rgba(255,255,255,.02);
+    }
+    .tile img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border:1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.02);
+      white-space: nowrap;
+    }
+
+    .skillsGrid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .skillsBox{
+      grid-column: span 4;
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: none;
+    }
+    @media (max-width: 900px){ .skillsBox{grid-column: span 12;} }
+    .skillsBox .tag{
+      font-size: 14px;
+      padding: 6px 12px;
+    }
+
+    .footer{
+      padding: 28px 0 60px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="container navin">
+      <div class="brand">Portfolio</div>
+      <div class="navlinks">
+        <a href="#thesis">Thesis</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="badge">Electrical Engineering • Automation & Robotics • TUM</div>
+      <h1>Ege Palamutlu’s Portfolio</h1>
+      <p class="sub">
+        I’m studying Electrical Engineering at the Technical University of Munich, focusing on Automation & Robotics.
+      </p>
+    </div>
+  </header>
+
+  <!-- ===================== THESIS ===================== -->
+  <section class="section" id="thesis">
+    <div class="container">
+      <h2>Bachelor Thesis</h2>
+      <p class="lead">
+        <b>Towards Automated Chemistry Research: Making Laboratory Devices Intelligent and Automation-Compatible</b>
+      </p>
+
+      <div class="grid">
+        <div class="card span7">
+          <div class="k">Demo</div>
+          <div class="media">
+            <video controls playsinline preload="metadata">
+              <source src="thesis_port.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="meta" style="margin-top:10px">
+            Automated experiment cycle: robot loads a plate, the device measures, and the robot unloads it.
+          </div>
+        </div>
+
+        <div class="card span5">
+          <div class="k">Motivation</div>
+          <p class="sub" style="margin:0">
+            Lab workflows often require manual handling and one-off device integrations. This slows experiments and increases errors.
+          </p>
+
+          <div class="hr"></div>
+
+          <div class="k">Approach</div>
+          <p class="sub" style="margin:0">
+            Used <b>SiLA 2</b> as a common interface so robots and lab devices can be orchestrated in one workflow.
+          </p>
+
+          <div class="hr"></div>
+
+          <div class="k">Result</div>
+          <p class="sub" style="margin:0">
+            Demonstrated a complete end-to-end run and a structure that can be extended to other devices and workflows.
+          </p>
+
+          <div class="hr"></div>
+          <div class="k">Tools</div>
+          <div class="tags">
+            <span class="tag">Franka Panda</span>
+            <span class="tag">SiLA 2</span>
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+
+      <div class="grid">
+        <!-- Project 1 -->
+        <div class="card span12">
+          <div class="k">Project 1</div>
+          <div class="title">DrawBot — Drawing shapes from SVG on a whiteboard</div>
+          <p class="sub">
+            Built a drawing pipeline in RoboDK to render SVG shapes on a whiteboard with a UR10e.
+          </p>
+
+          <div class="twoCol" style="margin-top:10px">
+            <div class="media"><img src="spaceship_port.gif" alt="DrawBot — spaceship"></div>
+            <div>
+              <div class="k" style="margin-top:2px">Key points</div>
+              <ul>
+                <li>Converted SVG paths into drawing trajectories (strokes + pen up/down moves).</li>
+                <li>Scaled and positioned shapes consistently on the board.</li>
+                <li>Validated on multiple drawings (spaceship, circle, gear).</li>
+              </ul>
+              <div class="hr"></div>
+              <div class="k">Tools</div>
+              <div class="tags">
+                <span class="tag">RoboDK</span>
+                <span class="tag">UR10e</span>
+                <span class="tag">SVG</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tileRow">
+            <div class="tile"><img src="circle_port.gif" alt="DrawBot — circle"></div>
+            <div class="tile"><img src="gear_port.gif" alt="DrawBot — gear"></div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card span12">
+          <div class="k">Project 2</div>
+          <div class="title">PolishBot — Erasing a drawing from the surface</div>
+          <p class="sub">
+            Implemented an erase routine by teaching a wipe trajectory and replaying it reliably.
+          </p>
+
+          <div class="twoCol" style="margin-top:10px">
+            <div class="media"><img src="erase_port.gif" alt="PolishBot — erase demo"></div>
+            <div>
+              <div class="k" style="margin-top:2px">Key points</div>
+              <ul>
+                <li>Recorded a wipe path once, then replayed it consistently to erase a defined area.</li>
+                <li>Integrated robot control with a Franka interface using ROS 2.</li>
+                <li>Implemented the workflow using Python and C++.</li>
+              </ul>
+              <div class="hr"></div>
+              <div class="k">Tools</div>
+              <div class="tags">
+                <span class="tag">Franka Panda</span>
+                <span class="tag">ROS 2</span>
+                <span class="tag">Python</span>
+                <span class="tag">C++</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section class="section" id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <p class="lead">Selected roles focused on engineering, automation, and practical systems work.</p>
+
+      <div class="grid">
+        <div class="card span12">
+          <div class="k">Working Student</div>
+          <div class="title">Linde Engineering — Engineering Department</div>
+          <p class="sub">21.03.2022 – 30.07.2022</p>
+          <div class="hr"></div>
+          <div class="k">Tools</div>
+          <div class="tags">
+            <span class="tag">Documentation</span>
+          </div>
+        </div>
+
+        <div class="card span12">
+          <div class="k">Engineering Internship</div>
+          <div class="title">TU Munich — Robotics &amp; System Intelligence Chair</div>
+          <p class="sub">
+            Graph-based mechatronics system representation and optimization for the Hand Optimization Pipeline in MATLAB.
+          </p>
+          <p class="sub" style="margin-top:6px">12.2022 – 03.2023</p>
+          <div class="hr"></div>
+          <div class="k">Tools</div>
+          <div class="tags">
+            <span class="tag">MATLAB</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+
+        <div class="card span12">
+          <div class="k">Working Student</div>
+          <div class="title">Knorr-Bremse — Electronic Systems for Motor Control</div>
+          <p class="sub">Hardware design, PCB layout, and system integration with simulation tooling.</p>
+          <div class="hr"></div>
+          <div class="k">Tools</div>
+          <div class="tags">
+            <span class="tag">KiCad</span>
+            <span class="tag">PCB</span>
+            <span class="tag">MATLAB/Simulink</span>
+            <span class="tag">BLDC motor</span>
+            <span class="tag">Stepper motor</span>
+            <span class="tag">Arduino</span>
+          </div>
+        </div>
+
+        <div class="card span12">
+          <div class="k">Working Student (Current)</div>
+          <div class="title">PULS GmbH — Application Engineering</div>
+          <p class="sub">Application engineering with hands-on testing and validation of power supplies.</p>
+          <div class="hr"></div>
+          <div class="k">Tools</div>
+          <div class="tags">
+            <span class="tag">Power supply testing</span>
+            <span class="tag">Validation</span>
+            <span class="tag">Node-RED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="section" id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+
+      <div class="skillsGrid">
+        <div class="skillsBox">
+          <div class="k">Programming</div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">C</span>
+            <span class="tag">C#</span>
+            <span class="tag">C++</span>
+            <span class="tag">Java</span>
+          </div>
+        </div>
+
+        <div class="skillsBox">
+          <div class="k">Robotics</div>
+          <div class="tags">
+            <span class="tag">ROS 2</span>
+            <span class="tag">Franka Panda</span>
+            <span class="tag">UR10e</span>
+            <span class="tag">RoboDK</span>
+          </div>
+        </div>
+
+        <div class="skillsBox">
+          <div class="k">Engineering Tools</div>
+          <div class="tags">
+            <span class="tag">MATLAB/Simulink</span>
+            <span class="tag">KiCad</span>
+            <span class="tag">LTspice</span>
+            <span class="tag">Git</span>
+            <span class="tag">SiLA 2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="grid">
+        <div class="card span12">
+          <div class="k">Reach me</div>
+          <p class="sub" style="margin:0 0 10px">
+            <b>Munich, Germany</b><br/>
+            Email: <a href="mailto:egepalamutlu01@gmail.com">egepalamutlu01@gmail.com</a><br/>
+            LinkedIn: <a href="https://www.linkedin.com/in/ege-palamutlu-10bbbb219/" target="_blank" rel="noopener">
+              linkedin.com/in/ege-palamutlu-10bbbb219
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer">
+        © <span id="y"></span> Ege Palamutlu
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
