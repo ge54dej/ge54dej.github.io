@@ -62,7 +62,7 @@
     .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
     h1{font-size:clamp(42px,6vw,76px);font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:22px}
-    .hero-sub{color:var(--muted);max-width:52ch;line-height:1.75;font-size:16px;font-weight:400;margin-bottom:32px}
+    .hero-sub{color:var(--muted);max-width:52ch;line-height:1.75;font-size:18px;font-weight:400;margin-bottom:32px}
     .hero-cta{display:flex;flex-wrap:wrap;gap:10px}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:10px;font-size:13px;font-weight:700;letter-spacing:.04em;transition:all .2s;cursor:pointer;text-decoration:none !important;font-family:'Syne',sans-serif;text-transform:uppercase}
     .btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2)}
@@ -109,9 +109,9 @@
 
     /* TAGS */
     .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .tag{font-size:11px;color:var(--muted);border:1px solid var(--border);padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.02);font-family:'DM Mono',monospace}
-    .tag-blue{font-size:11px;color:var(--accent);border:1px solid rgba(90,173,255,.25);padding:4px 11px;border-radius:999px;background:rgba(90,173,255,.07);font-family:'DM Mono',monospace}
-    .tag-purple{font-size:11px;color:var(--accent2);border:1px solid rgba(167,139,250,.25);padding:4px 11px;border-radius:999px;background:rgba(167,139,250,.07);font-family:'DM Mono',monospace}
+    .tag{font-size:13px;color:var(--muted);border:1px solid var(--border);padding:5px 13px;border-radius:999px;background:rgba(255,255,255,.02);font-family:'DM Mono',monospace}
+    .tag-blue{font-size:13px;color:var(--accent);border:1px solid rgba(90,173,255,.25);padding:5px 13px;border-radius:999px;background:rgba(90,173,255,.07);font-family:'DM Mono',monospace}
+    .tag-purple{font-size:13px;color:var(--accent2);border:1px solid rgba(167,139,250,.25);padding:5px 13px;border-radius:999px;background:rgba(167,139,250,.07);font-family:'DM Mono',monospace}
 
     /* EXPERIENCE TIMELINE */
     .timeline{padding-left:20px}
@@ -282,7 +282,7 @@
             <div class="media"><img src="spaceship_port.gif" alt="DrawBot drawing a spaceship"></div>
             <div>
               <div class="k-blue">Key Points</div>
-              <ul style="color:var(--muted);font-size:16px;padding-left:18px;line-height:1.85;margin-bottom:16px">
+              <ul style="color:var(--muted);font-size:19px;padding-left:18px;line-height:2;margin-bottom:20px">
                 <li>Sampled SVG paths into discrete waypoints at fixed resolution.</li>
                 <li>Handled coordinate transforms across different SVG viewBox values.</li>
                 <li>Tuned joint speed near sharp corners to prevent overshoot.</li>
@@ -312,7 +312,7 @@
             <div class="media"><img src="erase_port.gif" alt="PolishBot erasing the whiteboard"></div>
             <div>
               <div class="k-purple">Key Points</div>
-              <ul style="color:var(--muted);font-size:16px;padding-left:18px;line-height:1.85;margin-bottom:16px">
+              <ul style="color:var(--muted);font-size:19px;padding-left:18px;line-height:2;margin-bottom:20px">
                 <li>Hand-guided robot teaching to record the wipe trajectory.</li>
                 <li>Franka FCI used for real-time control; ROS 2 for monitoring.</li>
                 <li>Z-axis impedance tuned for stable contact without force sensing.</li>
