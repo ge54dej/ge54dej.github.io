@@ -94,10 +94,12 @@
     video,img{display:block;width:100%;height:auto}
 
     /* PROJECTS */
-    .proj-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);margin-bottom:8px;letter-spacing:.08em}
-    .proj-num-purple{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent2);margin-bottom:8px;letter-spacing:.08em}
-    .proj-title{font-size:22px;font-weight:800;margin-bottom:8px;letter-spacing:-.02em}
-    .proj-desc{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:16px}
+    .proj-num{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);margin-bottom:10px;letter-spacing:.08em}
+    .proj-num-purple{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent2);margin-bottom:10px;letter-spacing:.08em}
+    .proj-title{font-size:28px;font-weight:800;margin-bottom:12px;letter-spacing:-.02em}
+    .proj-desc{color:var(--muted);font-size:16px;line-height:1.75;margin-bottom:20px}
+    .proj-body{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+    @media(max-width:700px){.proj-body{grid-template-columns:1fr}}
     .twoCol{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
     @media(max-width:700px){.twoCol{grid-template-columns:1fr}}
     .tileRow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
@@ -275,29 +277,31 @@
         <div class="card card-blue">
           <div class="proj-num">Project 01 — RoboDK · UR10e</div>
           <div class="proj-title">DrawBot — SVG Drawing on a Whiteboard</div>
-          <p class="proj-desc">Built a pipeline in RoboDK that converts SVG vector files into robot drawing trajectories, rendering shapes on a whiteboard using a UR10e arm. The core challenge was mapping SVG's coordinate system (top-left origin, Y-down) to the robot frame and inserting clean pen-up/pen-down transitions between strokes.</p>
-          <div class="twoCol">
-            <div class="media"><img src="spaceship_port.gif" alt="DrawBot drawing a spaceship"></div>
+          <p class="proj-desc">Built a pipeline in RoboDK that converts SVG vector files into robot drawing trajectories, rendering shapes on a whiteboard using a UR10e arm.</p>
+          <div class="media"><img src="spaceship_port.gif" alt="DrawBot drawing a spaceship"></div>
+          <div class="proj-body">
             <div>
-              <div class="k-blue">Key Points</div>
-              <ul style="color:var(--muted);font-size:14px;padding-left:18px;line-height:1.8;margin-bottom:14px">
+              <div class="k-blue" style="margin-top:4px">Key Points</div>
+              <ul style="color:var(--muted);font-size:15px;padding-left:18px;line-height:1.9">
                 <li>Sampled SVG Bézier curves into discrete waypoints at fixed resolution.</li>
                 <li>Handled coordinate transforms across different SVG viewBox values.</li>
                 <li>Tuned joint speed near sharp corners to prevent overshoot.</li>
                 <li>Validated on three shapes testing different drawing challenges.</li>
               </ul>
-              <div class="k">Tools</div>
-              <div class="tags">
+            </div>
+            <div>
+              <div class="k" style="margin-top:4px">Tools</div>
+              <div class="tags" style="margin-bottom:20px">
                 <span class="tag-blue">RoboDK</span>
                 <span class="tag-blue">UR10e</span>
                 <span class="tag-blue">SVG</span>
                 <span class="tag-blue">Python</span>
               </div>
+              <div class="tileRow" style="margin-top:0">
+                <div class="tile"><img src="circle_port.gif" alt="DrawBot drawing a circle"></div>
+                <div class="tile"><img src="gear_port.gif" alt="DrawBot drawing a gear"></div>
+              </div>
             </div>
-          </div>
-          <div class="tileRow">
-            <div class="tile"><img src="circle_port.gif" alt="DrawBot drawing a circle"></div>
-            <div class="tile"><img src="gear_port.gif" alt="DrawBot drawing a gear"></div>
           </div>
         </div>
 
@@ -306,17 +310,19 @@
           <div class="proj-num-purple">Project 02 — Franka Panda · ROS 2</div>
           <div class="proj-title">PolishBot — Automated Whiteboard Erasing</div>
           <p class="proj-desc">Implemented a reliable erase routine on the Franka Panda using ROS 2. The wipe trajectory was recorded by physically guiding the robot by hand, joint positions were captured at each timestep and saved. That recorded path is then replayed consistently, while the Franka's impedance control maintains steady contact force against the board without needing a force sensor.</p>
-          <div class="twoCol">
-            <div class="media"><img src="erase_port.gif" alt="PolishBot erasing the whiteboard"></div>
+          <div class="media"><img src="erase_port.gif" alt="PolishBot erasing the whiteboard"></div>
+          <div class="proj-body">
             <div>
-              <div class="k-purple">Key Points</div>
-              <ul style="color:var(--muted);font-size:14px;padding-left:18px;line-height:1.8;margin-bottom:14px">
-                <li>Cartesian-space trajectory recording for consistent replay.</li>
+              <div class="k-purple" style="margin-top:4px">Key Points</div>
+              <ul style="color:var(--muted);font-size:15px;padding-left:18px;line-height:1.9">
+                <li>Hand-guided robot teaching to record the wipe trajectory.</li>
                 <li>Franka FCI used for real-time control; ROS 2 for monitoring.</li>
                 <li>Z-axis impedance tuned for stable contact without force sensing.</li>
                 <li>Implemented in Python and C++.</li>
               </ul>
-              <div class="k">Tools</div>
+            </div>
+            <div>
+              <div class="k" style="margin-top:4px">Tools</div>
               <div class="tags">
                 <span class="tag-purple">Franka Panda</span>
                 <span class="tag-purple">ROS 2</span>
@@ -392,16 +398,7 @@
           </div>
         </div>
 
-        <div class="exp-card">
-          <div class="exp-role">Internship</div>
-          <div class="exp-company">MET Advanced Technology Systems — Robotics &amp; Image Processing</div>
-          <div class="exp-date">Dec 2021</div>
-          <div class="exp-desc">Internship in the robotics automation R&D area, focusing on image processing pipelines for industrial automation.</div>
-          <div class="tags">
-            <span class="tag">Robotics Automation</span>
-            <span class="tag">Image Processing</span>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
