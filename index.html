@@ -3,197 +3,318 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Ege Palamutlu’s Portfolio</title>
+  <title>Ege Palamutlu's Portfolio</title>
   <meta name="description" content="Portfolio of Ege Palamutlu: bachelor thesis, robotics projects, experience, skills, and contact."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#070A10;
-      --text:#EAF0FF;
-      --muted:#A7B3C7;
-      --border:rgba(255,255,255,.10);
-      --accent:#7DD3FC;
-      --shadow: 0 18px 45px rgba(0,0,0,.45);
+      --bg:#06080F;
+      --surface: rgba(255,255,255,.04);
+      --surface2: rgba(255,255,255,.07);
+      --text:#E8EFFF;
+      --muted:#8A96AD;
+      --muted2:#5C6578;
+      --border:rgba(255,255,255,.09);
+      --border2:rgba(255,255,255,.15);
+      --accent:#5AADFF;
+      --accent2:#A78BFA;
+      --green:#4ADE80;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
+    *{box-sizing:border-box; margin:0; padding:0}
+    html{scroll-behavior:smooth}
     body{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:
-        radial-gradient(900px 500px at 18% 18%, rgba(125,211,252,.10), transparent 55%),
-        radial-gradient(900px 500px at 85% 18%, rgba(167,139,250,.10), transparent 55%),
-        radial-gradient(1000px 700px at 50% 100%, rgba(125,211,252,.06), transparent 60%),
-        var(--bg);
-      color:var(--text);
+      font-family: 'Syne', ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.6;
     }
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{width:min(1120px,92vw);margin:0 auto}
+    .mono{font-family:'DM Mono', monospace}
+    .container{width:min(1060px,92vw);margin:0 auto}
 
+    /* NAV */
     .nav{
-      position:sticky; top:0; z-index:20;
-      background: rgba(7,10,16,.70);
-      backdrop-filter: blur(12px);
+      position:sticky; top:0; z-index:50;
+      background: rgba(6,8,15,.80);
+      backdrop-filter: blur(16px) saturate(1.4);
       border-bottom:1px solid var(--border);
     }
     .navin{
       display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0; gap:12px;
+      padding:16px 0; gap:12px;
     }
     .brand{
-      font-weight:700;
-      color:var(--muted);
-      letter-spacing:.08em;
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.12em;
       text-transform:uppercase;
-      font-size:12px;
+      color:var(--text);
     }
-    .navlinks{display:flex; flex-wrap:wrap; gap:14px; color:var(--muted)}
-    .navlinks a{color:var(--muted)}
+    .navlinks{display:flex; flex-wrap:wrap; gap:20px}
+    .navlinks a{
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:.04em;
+      transition: color .2s;
+    }
     .navlinks a:hover{color:var(--text); text-decoration:none}
 
-    .hero{padding:56px 0 22px}
+    /* HERO */
+    .hero{
+      padding:80px 0 52px;
+      border-bottom:1px solid var(--border);
+    }
+    .hero-inner{
+      display:block;
+    }
     .badge{
       display:inline-flex; align-items:center; gap:8px;
-      padding:6px 10px; border-radius:999px;
-      background: rgba(125,211,252,.10);
-      border: 1px solid rgba(125,211,252,.22);
+      padding:5px 12px; border-radius:999px;
+      border: 1px solid rgba(90,173,255,.25);
+      background: rgba(90,173,255,.08);
       color: var(--accent);
-      font-size: 13px;
+      font-size: 12px;
+      letter-spacing:.06em;
+      margin-bottom:20px;
     }
+    .dot{
+      width:6px; height:6px; border-radius:50%;
+      background:var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
     h1{
-      font-size: clamp(34px, 4.5vw, 58px);
-      margin: 12px 0 10px;
-      line-height: 1.05;
-      letter-spacing:-.02em;
+      font-size: clamp(36px,5vw,64px);
+      font-weight:800;
+      line-height:1.0;
+      letter-spacing:-.03em;
+      margin-bottom:18px;
+    }
+    h1 span{
+      color: var(--text);
     }
     .sub{
       color:var(--muted);
-      max-width: 80ch;
-      line-height: 1.65;
-      margin: 0;
-      font-size: 16px;
+      max-width:56ch;
+      line-height:1.7;
+      font-size:16px;
+      font-weight:400;
     }
+    .hero-cta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:28px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 20px; border-radius:10px;
+      font-size:14px; font-weight:600;
+      letter-spacing:.02em;
+      transition: all .2s; cursor:pointer;
+      text-decoration:none !important;
+    }
+    .btn-primary{
+      background:var(--accent);
+      color:#06080F;
+      border:1px solid var(--accent);
+    }
+    .btn-primary:hover{background:#7EC8FF; border-color:#7EC8FF}
+    .btn-outline{
+      background:transparent;
+      color:var(--text);
+      border:1px solid var(--border2);
+    }
+    .btn-outline:hover{background:var(--surface2); border-color:rgba(255,255,255,.25)}
+    
 
-    .section{padding: 28px 0}
-    .section h2{margin:0 0 10px; font-size: 22px}
-    .lead{color:var(--muted); margin:0 0 14px; line-height:1.6; max-width: 90ch}
+    /* SECTIONS */
+    .section{padding:60px 0}
+    .section + .section{border-top:1px solid var(--border)}
+    .sec-label{
+      font-size:11px; color:var(--muted); letter-spacing:.14em;
+      text-transform:uppercase; margin-bottom:10px;
+    }
+    .sec-label span{color:var(--accent)}
+    h2{font-size:28px; font-weight:800; letter-spacing:-.02em; margin-bottom:6px}
+    .lead{color:var(--muted); font-size:15px; margin-bottom:32px; max-width:70ch; line-height:1.65}
 
-    .grid{display:grid; grid-template-columns: repeat(12,1fr); gap:14px}
+    /* CARDS */
     .card{
-      grid-column: span 6;
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 16px;
-      box-shadow: var(--shadow);
-    }
-    .span7{grid-column: span 7}
-    .span5{grid-column: span 5}
-    .span12{grid-column: span 12}
-    @media (max-width: 900px){
-      .card, .span7, .span5, .span12{grid-column: span 12}
-    }
-
-    .k{
-      color:var(--muted);
-      font-size:12px;
-      text-transform: uppercase;
-      letter-spacing:.08em;
-      margin-bottom: 8px;
-    }
-    .title{
-      font-size: 18px;
-      margin: 0 0 6px;
-      line-height:1.25;
-    }
-    .meta{color:var(--muted); font-size: 13px; margin-bottom: 10px}
-    .hr{height:1px;background:var(--border);margin:8px 0}
-    ul{margin:8px 0 0; padding-left:18px; color:var(--muted); line-height:1.6}
-    li{margin:6px 0}
-
-    .media{
-      width:100%;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-      overflow: hidden;
-    }
-    video{display:block; width:100%; height:auto}
-    img{display:block; width:100%; height:auto}
-
-    .twoCol{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items: start;
-    }
-    @media (max-width: 900px){ .twoCol{grid-template-columns: 1fr;} }
-
-    /* Bottom GIF row: pull it UP hard to remove the blank area under Tools (matches your screenshot) */
-    .tileRow{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      margin-top:-26px;     /* stronger pull up */
-    }
-    @media (max-width: 900px){ .tileRow{grid-template-columns: 1fr;} }
-    .tile{
-      aspect-ratio: 16 / 9;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      overflow: hidden;
-      background: rgba(255,255,255,.02);
-    }
-    .tile img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-    }
-
-    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
-    .tag{
-      font-size: 12px;
-      color: var(--muted);
+      background: var(--surface);
       border:1px solid var(--border);
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.02);
-      white-space: nowrap;
+      border-radius:20px;
+      padding:24px;
+    }
+    .card-accent{
+      border-color: rgba(90,173,255,.2);
+      background: linear-gradient(160deg, rgba(90,173,255,.06), rgba(167,139,250,.04));
+    }
+    .k{
+      font-size:11px; color:var(--muted2);
+      text-transform:uppercase; letter-spacing:.12em;
+      margin-bottom:8px;
+    }
+    .hr{height:1px;background:var(--border);margin:14px 0}
+
+    /* GRID */
+    .grid12{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .s7{grid-column:span 7}
+    .s5{grid-column:span 5}
+    .s12{grid-column:span 12}
+    .s6{grid-column:span 6}
+    .s4{grid-column:span 4}
+    @media(max-width:800px){
+      .s7,.s5,.s12,.s6,.s4{grid-column:span 12}
     }
 
-    .skillsGrid{
+    /* THESIS */
+    .media{
+      width:100%; border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.3);
+      overflow:hidden;
+    }
+    video,img{display:block;width:100%;height:auto}
+    .thesis-tag{
+      font-size:11px; font-weight:700;
+      letter-spacing:.08em; text-transform:uppercase;
+      color:var(--accent2);
+      background:rgba(167,139,250,.1);
+      border:1px solid rgba(167,139,250,.2);
+      padding:4px 10px; border-radius:999px;
+      display:inline-block; margin-bottom:10px;
+    }
+
+    /* PROJECTS */
+    .proj-num{
+      font-family:'DM Mono', monospace;
+      font-size:11px; color:var(--muted2);
+      margin-bottom:6px;
+    }
+    .proj-title{font-size:20px; font-weight:700; margin-bottom:8px; letter-spacing:-.01em}
+    .proj-desc{color:var(--muted); font-size:14px; line-height:1.65; margin-bottom:14px}
+
+    /* Detail accordion */
+    .detail-toggle{
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:13px; color:var(--accent);
+      cursor:pointer; border:none; background:none;
+      padding:0; font-family:inherit; font-weight:600;
+      letter-spacing:.02em; margin-top:4px;
+      transition: gap .2s;
+    }
+    .detail-toggle:hover{gap:10px}
+    .detail-toggle svg{transition:transform .25s}
+    .detail-toggle.open svg{transform:rotate(90deg)}
+    .detail-body{
+      display:none; margin-top:16px;
+      border-top:1px solid var(--border);
+      padding-top:16px;
+    }
+    .detail-body.open{display:block}
+    .detail-grid{
       display:grid;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns:1fr 1fr;
       gap:14px;
+      margin-bottom:14px;
     }
-    .skillsBox{
-      grid-column: span 4;
-      background: rgba(255,255,255,.02);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 16px;
-      box-shadow: none;
+    @media(max-width:700px){.detail-grid{grid-template-columns:1fr}}
+    .detail-box{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:12px; padding:14px;
     }
-    @media (max-width: 900px){ .skillsBox{grid-column: span 12;} }
-    .skillsBox .tag{
-      font-size: 14px;
-      padding: 6px 12px;
+    .detail-box .k{margin-bottom:6px}
+    .detail-box p{color:var(--muted); font-size:14px; line-height:1.65; margin:0}
+
+    /* GIF row */
+    .twoCol{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+    @media(max-width:700px){.twoCol{grid-template-columns:1fr}}
+    .tileRow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+    @media(max-width:700px){.tileRow{grid-template-columns:1fr}}
+    .tile{
+      aspect-ratio:16/9; border-radius:12px;
+      border:1px solid var(--border); overflow:hidden;
+      background:rgba(0,0,0,.2);
+    }
+    .tile img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* TAGS */
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .tag{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--border);
+      padding:4px 10px; border-radius:999px;
+      background:rgba(255,255,255,.02);
+      font-family:'DM Mono',monospace;
     }
 
+    /* EXPERIENCE */
+    .exp-card{
+      border-left:2px solid var(--border2);
+      padding:0 0 32px 22px;
+      position:relative;
+    }
+    .exp-card::before{
+      content:'';
+      position:absolute; left:-5px; top:6px;
+      width:8px; height:8px; border-radius:50%;
+      background:var(--muted2);
+    }
+    .exp-card.current::before{background:var(--green)}
+    .exp-card:last-child{padding-bottom:0}
+    .exp-role{font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+    .exp-company{font-size:17px;font-weight:700;margin-bottom:6px}
+    .exp-desc{color:var(--muted);font-size:14px;line-height:1.65;margin-bottom:10px}
+    .exp-date{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted2);margin-bottom:8px}
+
+    /* SKILLS */
+    .skillsGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:700px){.skillsGrid{grid-template-columns:1fr}}
+    .skillsBox{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:16px; padding:18px;
+    }
+    .skillsBox .tag{font-size:13px;padding:6px 12px}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:640px){.contact-grid{grid-template-columns:1fr}}
+    .contact-item{
+      display:flex; align-items:center; gap:12px;
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:14px; padding:16px 18px;
+      color:var(--text); transition:border-color .2s, background .2s;
+    }
+    .contact-item:hover{border-color:var(--border2); background:var(--surface2); text-decoration:none}
+    .contact-icon{
+      width:36px; height:36px; border-radius:10px;
+      background:rgba(90,173,255,.1); border:1px solid rgba(90,173,255,.2);
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+    .contact-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .contact-label{font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+    .contact-val{font-size:14px;font-weight:600}
+
+    /* FOOTER */
     .footer{
-      padding: 28px 0 60px;
-      color: var(--muted);
-      font-size: 13px;
-      border-top: 1px solid var(--border);
-      margin-top: 10px;
+      padding:32px 0 48px;
+      color:var(--muted2); font-size:13px;
+      border-top:1px solid var(--border);
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;
     }
   </style>
 </head>
 
 <body>
+  <!-- NAV -->
   <div class="nav">
     <div class="container navin">
-      <div class="brand">Portfolio</div>
+      <div class="brand">EP</div>
       <div class="navlinks">
         <a href="#thesis">Thesis</a>
         <a href="#projects">Projects</a>
@@ -204,94 +325,110 @@
     </div>
   </div>
 
+  <!-- HERO -->
   <header class="hero">
     <div class="container">
-      <div class="badge">Electrical Engineering • Automation & Robotics • TUM</div>
-      <h1>Ege Palamutlu’s Portfolio</h1>
-      <p class="sub">
-       Electrical Engineering student at TUM | Focus: Automation & Robotics
-      </p>
+      <div class="hero-inner">
+        <div>
+          <div class="badge">
+            <span class="dot"></span>
+            Electrical Engineering · Automation &amp; Robotics · TUM
+          </div>
+          <h1>Ege<br><span>Palamutlu</span></h1>
+          <p class="sub">
+            Building intelligent systems at the intersection of robotics, automation, and embedded engineering. Currently finishing my bachelor's at TU Munich.
+          </p>
+          <div class="hero-cta">
+            <a href="cv.pdf" class="btn btn-outline" download>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download CV
+            </a>
+
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- ===================== THESIS ===================== -->
+  <!-- THESIS -->
   <section class="section" id="thesis">
     <div class="container">
-      <h2>Bachelor Thesis</h2>
-      <p class="lead">
-        <b>Towards Automated Chemistry Research: Making Laboratory Devices Intelligent and Automation-Compatible</b>
-      </p>
+      <div class="sec-label"><span>01</span> — Bachelor Thesis</div>
+      <h2>Lab Automation with SiLA 2</h2>
+      <p class="lead">Enabling robots and lab devices to work together through a common software interface.</p>
 
-      <div class="grid">
-        <div class="card span7">
-          <div class="k">Demo</div>
-          <div class="media">
-            <video controls playsinline preload="metadata">
-              <source src="thesis_port.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+      <div class="card card-accent" style="display:flex;flex-direction:column;gap:16px">
+        <div class="k">Demo</div>
+        <div class="media">
+          <video controls playsinline preload="metadata">
+            <source src="thesis_port.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="hr" style="margin:0"></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+          <div>
+            <div class="k">Motivation</div>
+            <p style="color:var(--muted);font-size:14px;line-height:1.65;margin:0">
+              Lab workflows typically require manual handling and one-off integrations per device. This slows experiments and introduces human error.
+            </p>
           </div>
-
-          <div class="meta" style="margin-top:10px">
-            Automated experiment: robot loads a plate, the device makes the experiment and the robot unloads it.
+          <div>
+            <div class="k">Approach</div>
+            <p style="color:var(--muted);font-size:14px;line-height:1.65;margin:0">
+              Implemented SiLA 2 as a standardized communication layer so robots and lab instruments can be orchestrated in one unified workflow.
+            </p>
+          </div>
+          <div>
+            <div class="k">Result</div>
+            <p style="color:var(--muted);font-size:14px;line-height:1.65;margin:0">
+              Delivered a complete, repeatable end-to-end run. The architecture is modular — additional devices can be integrated without rewriting the system.
+            </p>
           </div>
         </div>
-
-        <div class="card span5">
-          <div class="k">Motivation</div>
-          <p class="sub" style="margin:0">
-            Lab workflows often require manual handling and one-off device integrations. This slows experiments and increases errors.
-          </p>
-
-          <div class="hr"></div>
-
-          <div class="k">Approach</div>
-          <p class="sub" style="margin:0">
-            Used SiLA 2 software as a common interface so robots and lab devices can be orchestrated in one workflow.
-          </p>
-
-          <div class="hr"></div>
-
-          <div class="k">Result</div>
-          <p class="sub" style="margin:0">
-            Demonstrated a complete end-to-end run and a structure that can be extended to other devices and workflows.
-          </p>
-
-          <div class="hr"></div>
-          <div class="k">Tools</div>
-          <div class="tags">
-            <span class="tag">Franka Panda</span>
-            <span class="tag">SiLA 2</span>
-            <span class="tag">Python</span>
-            <span class="tag">C++</span>
+        <div class="hr" style="margin:0"></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px">
+          <div>
+            <div class="k">Tools</div>
+            <div class="tags" style="margin-top:6px">
+              <span class="tag">Franka Panda</span>
+              <span class="tag">SiLA 2</span>
+              <span class="tag">Python</span>
+              <span class="tag">C++</span>
+            </div>
           </div>
+          <a href="thesis.pdf" download class="btn btn-outline" style="flex-shrink:0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Thesis
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== PROJECTS ===================== -->
+  <!-- PROJECTS -->
   <section class="section" id="projects">
     <div class="container">
-      <h2>Projects</h2>
+      <div class="sec-label"><span>02</span> — Projects</div>
+      <h2>Robotics Work</h2>
+      <p class="lead">Hands-on projects built during coursework, combining simulation, motion planning, and embedded control.</p>
 
-      <div class="grid">
-        <!-- Project 1 -->
-        <div class="card span12">
-          <div class="k">Project 1</div>
-          <div class="title">DrawBot — Drawing shapes from SVG on a whiteboard</div>
-          <p class="sub">
-            Built a drawing pipeline in RoboDK to render SVG shapes on a whiteboard with a UR10e.
-          </p>
+      <div style="display:flex;flex-direction:column;gap:20px">
 
-          <div class="twoCol" style="margin-top:10px">
-            <div class="media"><img src="spaceship_port.gif" alt="DrawBot — spaceship"></div>
+        <!-- DrawBot -->
+        <div class="card">
+          <div class="proj-num">Project 01</div>
+          <div class="proj-title">DrawBot — SVG Drawing on a Whiteboard</div>
+          <p class="proj-desc">Built a drawing pipeline in RoboDK to render SVG shapes on a whiteboard using a UR10e robotic arm.</p>
+
+          <div class="twoCol">
+            <div class="media"><img src="spaceship_port.gif" alt="DrawBot drawing a spaceship"></div>
             <div>
-              <div class="k" style="margin-top:2px">Key points</div>
-              <ul>
-                <li>Converted SVG paths into drawing trajectories (strokes + pen up/down moves).</li>
-                <li>Scaled and positioned shapes consistently on the board.</li>
-                <li>Validated on multiple drawings (spaceship, circle, gear).</li>
+              <div class="k">Key Points</div>
+              <ul style="color:var(--muted);font-size:14px;padding-left:18px;line-height:1.75">
+                <li>Converted SVG path data into drawing trajectories with pen up/down transitions.</li>
+                <li>Scaled and positioned shapes reliably across the board area.</li>
+                <li>Validated across multiple drawings — spaceship, circle, gear.</li>
               </ul>
               <div class="hr"></div>
               <div class="k">Tools</div>
@@ -305,27 +442,59 @@
           </div>
 
           <div class="tileRow">
-            <div class="tile"><img src="circle_port.gif" alt="DrawBot — circle"></div>
-            <div class="tile"><img src="gear_port.gif" alt="DrawBot — gear"></div>
+            <div class="tile"><img src="circle_port.gif" alt="DrawBot drawing a circle"></div>
+            <div class="tile"><img src="gear_port.gif" alt="DrawBot drawing a gear"></div>
+          </div>
+
+          <!-- Detail section -->
+          <button class="detail-toggle" onclick="toggleDetail(this)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            Read more — design decisions &amp; lessons learned
+          </button>
+          <div class="detail-body">
+            <div class="detail-grid">
+              <div class="detail-box">
+                <div class="k">Why the UR10e?</div>
+                <p>
+                  The UR10e was chosen for its 1300 mm reach, which is necessary to cover the full drawing area on a standard whiteboard. While the robot does appear extended in the demo, this was a deliberate configuration choice — the arm is operating within its rated payload and reach envelope. A shorter arm would require repositioning or multiple mounting points, adding complexity. The extended pose was tested for repeatability and remained stable throughout all trials.
+                </p>
+              </div>
+              <div class="detail-box">
+                <div class="k">SVG to Trajectory Pipeline</div>
+                <p>
+                  SVG files define paths as cubic Bézier curves. The pipeline samples these curves at a fixed resolution into discrete waypoints, then inserts pen-up/pen-down moves between strokes. One of the trickier parts was handling coordinate system transforms — SVG uses a top-left origin with Y going down, while RoboDK uses a right-hand robot frame. Getting the scaling and flipping right across different SVG viewBox values took several iterations.
+                </p>
+              </div>
+              <div class="detail-box">
+                <div class="k">Lessons Learned</div>
+                <p>
+                  Joint speed limits matter more than expected when drawing fine details — too fast and the arm overshoots corners. Slowing down near sharp path changes improved accuracy significantly. Also, whiteboard marker pressure is surprisingly sensitive: consistent Z-force during contact strokes required careful approach trajectory tuning rather than just position control.
+                </p>
+              </div>
+              <div class="detail-box">
+                <div class="k">Validation</div>
+                <p>
+                  Three drawings were used as test cases — a spaceship (complex curves), a circle (smooth arc continuity), and a gear (sharp corners + repeated features). This range was deliberate: each stresses a different aspect of the pipeline. The circle checks arc smoothness, the gear checks repeatability and corner handling, and the spaceship tests the full combination.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="card span12">
-          <div class="k">Project 2</div>
-          <div class="title">PolishBot — Erasing a drawing from the surface</div>
-          <p class="sub">
-            Implemented an erase routine by teaching a wipe trajectory and replaying it reliably.
-          </p>
+        <!-- PolishBot -->
+        <div class="card">
+          <div class="proj-num">Project 02</div>
+          <div class="proj-title">PolishBot — Automated Whiteboard Erasing</div>
+          <p class="proj-desc">Implemented a reliable erase routine using the Franka Panda, teaching a wipe trajectory once and replaying it with ROS 2.</p>
 
-          <div class="twoCol" style="margin-top:10px">
-            <div class="media"><img src="erase_port.gif" alt="PolishBot — erase demo"></div>
+          <div class="twoCol">
+            <div class="media"><img src="erase_port.gif" alt="PolishBot erasing the whiteboard"></div>
             <div>
-              <div class="k" style="margin-top:2px">Key points</div>
-              <ul>
-                <li>Recorded a wipe path once, then replayed it consistently to erase a defined area.</li>
-                <li>Integrated robot control with a Franka interface using ROS 2.</li>
-                <li>Implemented the workflow using Python and C++.</li>
+              <div class="k">Key Points</div>
+              <ul style="color:var(--muted);font-size:14px;padding-left:18px;line-height:1.75">
+                <li>Recorded a wipe path once, then replayed it to cover a defined erase area.</li>
+                <li>Integrated robot control via a Franka interface using ROS 2.</li>
+                <li>Workflow implemented in Python and C++.</li>
               </ul>
               <div class="hr"></div>
               <div class="k">Tools</div>
@@ -337,66 +506,105 @@
               </div>
             </div>
           </div>
+
+          <!-- Detail section -->
+          <button class="detail-toggle" onclick="toggleDetail(this)" style="margin-top:14px">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            Read more — what made it reliable &amp; what I learned
+          </button>
+          <div class="detail-body">
+            <div class="detail-grid">
+              <div class="detail-box">
+                <div class="k">What "Reliably" Actually Means</div>
+                <p>
+                  Reliability here meant the eraser consistently made contact with the board surface across multiple runs without slipping, bouncing, or missing sections. This was achieved by recording the trajectory in Cartesian space (not joint space), so small joint configuration differences on replay don't shift the end-effector path. Cartesian replay keeps the eraser pressed against the board at a consistent angle and force.
+                </p>
+              </div>
+              <div class="detail-box">
+                <div class="k">Franka + ROS 2 Integration</div>
+                <p>
+                  The Franka Panda communicates with ROS 2 through the franka_ros2 driver. One challenge was latency: the real-time control loop runs at 1 kHz on the robot's internal controller, while ROS 2 topics have variable timing. To avoid jerky motion, trajectory waypoints were pre-loaded and executed via the FCI (Franka Control Interface) directly, with ROS 2 used for monitoring and triggering rather than streaming real-time commands.
+                </p>
+              </div>
+              <div class="detail-box">
+                <div class="k">Contact Force Handling</div>
+                <p>
+                  A key difficulty with surface wiping is managing contact force. Too little pressure and the eraser doesn't clean; too much and the arm fights against its own stiffness. The Franka's built-in impedance control was used with a tuned stiffness in the Z direction, letting the arm comply slightly to surface irregularities while maintaining steady contact force — without needing an explicit force sensor.
+                </p>
+              </div>
+              <div class="detail-box">
+                <div class="k">Lessons Learned</div>
+                <p>
+                  Teaching a trajectory "once" sounds simple, but the quality of the recorded path matters enormously. Jerky hand-guidance during recording produces jerky replay. Spending time to record smooth, intentional movements — and trimming start/end artifacts — made a significant difference. I also learned that ROS 2 lifecycle node management is much more robust than simply spinning nodes: it allows graceful startup and shutdown without the robot entering fault states.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ===================== EXPERIENCE ===================== -->
+  <!-- EXPERIENCE -->
   <section class="section" id="experience">
     <div class="container">
-      <h2>Experience</h2>
+      <div class="sec-label"><span>03</span> — Experience</div>
+      <h2>Work History</h2>
+      <p class="lead">Industry and academic experience across robotics, embedded systems, and power electronics.</p>
 
-        <div class="card span12">
-          <div class="k">Engineering Internship</div>
-          <div class="title">TU Munich — Robotics &amp; System Intelligence Chair</div>
-          <p class="sub">
-            Graph-based mechatronics system representation and optimization for the Hand Optimization Pipeline in MATLAB.
-          </p>
-          <p class="sub" style="margin-top:6px">12.2022 – 03.2023</p>
-          <div class="hr"></div>
-          <div class="k">Tools</div>
-          <div class="tags">
-            <span class="tag">MATLAB</span>
-            <span class="tag">Optimization</span>
+      <div style="padding-left:8px">
+        <div class="exp-card current">
+          <div class="exp-role">Working Student · Current</div>
+          <div class="exp-company">PULS GmbH — Application Engineering</div>
+          <div class="exp-desc">
+            Testing and validation of industrial power supplies. Hands-on application engineering including customer use-case simulation, hardware validation under load conditions, and workflow automation using Node-RED for test sequencing.
           </div>
-        </div>
-
-        <div class="card span12">
-          <div class="k">Working Student</div>
-          <div class="title">Knorr-Bremse — Electronic Systems for Motor Control</div>
-          <p class="sub">Hardware design, PCB layout, and system integration with simulation tooling.</p>
-          <div class="hr"></div>
-          <div class="k">Tools</div>
-          <div class="tags">
-            <span class="tag">KiCad</span>
-            <span class="tag">PCB</span>
-            <span class="tag">MATLAB/Simulink</span>
-            <span class="tag">BLDC motor</span>
-            <span class="tag">Stepper motor</span>
-            <span class="tag">Arduino</span>
-          </div>
-        </div>
-
-        <div class="card span12">
-          <div class="k">Working Student (Current)</div>
-          <div class="title">PULS GmbH — Application Engineering</div>
-          <p class="sub">Application engineering with hands-on testing and validation of power supplies.</p>
-          <div class="hr"></div>
-          <div class="k">Tools</div>
-          <div class="tags">
+          <div class="tags" style="margin-bottom:10px">
             <span class="tag">Power Supply Testing</span>
             <span class="tag">Node-RED</span>
           </div>
         </div>
+
+        <div class="exp-card">
+          <div class="exp-role">Working Student</div>
+          <div class="exp-company">Knorr-Bremse — Electronic Systems for Motor Control</div>
+          <div class="exp-desc">
+            Hardware design and PCB layout for motor control systems. Worked on schematic capture in KiCad, designed and reviewed PCB layouts for BLDC and stepper motor drivers, and validated designs using MATLAB/Simulink simulation before hardware bring-up.
+          </div>
+          <div class="tags" style="margin-bottom:10px">
+            <span class="tag">KiCad</span>
+            <span class="tag">PCB Design</span>
+            <span class="tag">MATLAB/Simulink</span>
+            <span class="tag">BLDC</span>
+            <span class="tag">Stepper Motor</span>
+            <span class="tag">Arduino</span>
+          </div>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-role">Engineering Internship</div>
+          <div class="exp-company">TU Munich — Robotics &amp; System Intelligence Chair</div>
+          <div class="exp-date">Dec 2022 – Mar 2023</div>
+          <div class="exp-desc">
+            Worked on the Hand Optimization Pipeline — a graph-based framework for representing and optimizing mechatronic systems. Implemented system representations in MATLAB and contributed to the optimization routines used for robotic hand design exploration.
+          </div>
+          <div class="tags">
+            <span class="tag">MATLAB</span>
+            <span class="tag">Graph-based Optimization</span>
+            <span class="tag">Mechatronics</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== SKILLS ===================== -->
+  <!-- SKILLS -->
   <section class="section" id="skills">
     <div class="container">
-      <h2>Skills</h2>
+      <div class="sec-label"><span>04</span> — Skills</div>
+      <h2>Technical Stack</h2>
+      <p class="lead">Tools and technologies I use regularly across robotics, embedded systems, and software.</p>
 
       <div class="skillsGrid">
         <div class="skillsBox">
@@ -404,12 +612,11 @@
           <div class="tags">
             <span class="tag">Python</span>
             <span class="tag">C</span>
-            <span class="tag">C#</span>
             <span class="tag">C++</span>
+            <span class="tag">C#</span>
             <span class="tag">Java</span>
           </div>
         </div>
-
         <div class="skillsBox">
           <div class="k">Robotics</div>
           <div class="tags">
@@ -419,7 +626,6 @@
             <span class="tag">RoboDK</span>
           </div>
         </div>
-
         <div class="skillsBox">
           <div class="k">Engineering Tools</div>
           <div class="tags">
@@ -434,31 +640,64 @@
     </div>
   </section>
 
-  <!-- ===================== CONTACT ===================== -->
+  <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="container">
+      <div class="sec-label"><span>05</span> — Contact</div>
       <h2>Contact</h2>
-      <div class="grid">
-        <div class="card span12">
-          <div class="k">Reach me</div>
-          <p class="sub" style="margin:0 0 10px">
-            <b>Munich, Germany</b><br/>
-            Email: <a href="mailto:egepalamutlu01@gmail.com">egepalamutlu01@gmail.com</a><br/>
-            LinkedIn: <a href="https://www.linkedin.com/in/ege-palamutlu-10bbbb219/" target="_blank" rel="noopener">
-              linkedin.com/in/ege-palamutlu-10bbbb219
-            </a>
-          </p>
-        </div>
-      </div>
+      <p class="lead">Open to internships, thesis collaborations, and full-time roles in robotics and automation.</p>
 
-      <div class="footer">
-        © <span id="y"></span> Ege Palamutlu
+      <div class="contact-grid">
+        <a href="mailto:egepalamutlu01@gmail.com" class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val">egepalamutlu01@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ege-palamutlu-10bbbb219/" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-val">ege-palamutlu</div>
+          </div>
+        </a>
+
+
+
+        <a href="cv.pdf" download class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Resume</div>
+            <div class="contact-val">Download CV (PDF)</div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
+  <div class="container">
+    <div class="footer">
+      <span>© <span id="y"></span> Ege Palamutlu — Munich, Germany</span>
+      <span class="mono" style="font-size:12px">Electrical Engineering · TUM</span>
+    </div>
+  </div>
+
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    function toggleDetail(btn) {
+      btn.classList.toggle('open');
+      const body = btn.nextElementSibling;
+      body.classList.toggle('open');
+    }
   </script>
 </body>
 </html>
