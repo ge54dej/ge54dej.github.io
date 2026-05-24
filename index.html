@@ -25,7 +25,7 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:'Syne',ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:18px}
+    body{font-family:'Syne',ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:18px;font-variant-numeric:normal}
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
     .container{width:min(1240px,94vw);margin:0 auto}
@@ -61,7 +61,7 @@
     }
     .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
-    h1{font-size:clamp(42px,6vw,76px);font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:22px}
+    h1{font-size:clamp(42px,6vw,76px);font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:22px;font-variant-numeric:lining-nums}
     .hero-sub{color:var(--muted);max-width:52ch;line-height:1.75;font-size:19px;font-weight:400;margin-bottom:32px}
     .hero-cta{display:flex;flex-wrap:wrap;gap:10px}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:10px;font-size:13px;font-weight:700;letter-spacing:.04em;transition:all .2s;cursor:pointer;text-decoration:none !important;font-family:'Syne',sans-serif;text-transform:uppercase}
@@ -230,7 +230,7 @@
           </div>
           <div>
             <div class="k-blue">Approach</div>
-            <p style="color:var(--muted);line-height:1.75;margin:0">Implemented a SiLA 2 Server–Client architecture so the Franka Panda robot and a Thermo Fisher Varioskan LUX plate reader could be orchestrated from a single Python script — no GUI needed.</p>
+            <p style="color:var(--muted);line-height:1.75;margin:0">Implemented a SiLA 2 Server–Client architecture so the Franka Panda robot and a Thermo Fisher Varioskan LUX plate reader could be controlled from a single Python script — no GUI needed.</p>
           </div>
           <div>
             <div class="k-blue">Result</div>
@@ -240,7 +240,7 @@
         <div class="hr" style="margin:0"></div>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px">
           <div>
-            <div class="k">Tools & Stack</div>
+            <div class="k">Tools</div>
             <div class="tags" style="margin-top:8px">
               <span class="tag-blue">Franka Panda</span>
               <span class="tag-blue">SiLA 2</span>
@@ -248,7 +248,6 @@
               <span class="tag-blue">C++</span>
               <span class="tag-blue">C#</span>
               <span class="tag-blue">libfranka</span>
-              <span class="tag-blue">Varioskan LUX</span>
             </div>
           </div>
           <a href="thesis.pdf" download class="btn btn-accent" style="flex-shrink:0">
@@ -277,7 +276,7 @@
         <div class="card card-blue">
           <div class="proj-num">Project 01 — RoboDK · UR10e</div>
           <div class="proj-title">DrawBot — SVG Drawing on a Whiteboard</div>
-          <p class="proj-desc">Built a pipeline in RoboDK that converts SVG vector files into robot drawing trajectories, rendering shapes on a whiteboard using a UR10e arm.</p>
+          <p class="proj-desc">Built a pipeline in RoboDK that converts SVG vector files into robot drawing trajectories, rendering shapes on a whiteboard using a UR10e arm. The main challenges were mapping SVG's coordinate system to the robot frame, handling pen-up/pen-down transitions between strokes, and keeping the marker pressure consistent across the surface.</p>
           <div class="twoCol">
             <div class="media"><img src="spaceship_port.gif" alt="DrawBot drawing a spaceship"></div>
             <div>
@@ -286,7 +285,7 @@
                 <li>Sampled SVG paths into discrete waypoints at fixed resolution.</li>
                 <li>Handled coordinate transforms across different SVG viewBox values.</li>
                 <li>Tuned joint speed near sharp corners to prevent overshoot.</li>
-                <li>Validated on three shapes testing different drawing challenges.</li>
+                <li>Tested on a spaceship (curves), circle (arc smoothness), and gear (sharp corners + repeating features).</li>
               </ul>
               <div class="k">Tools</div>
               <div class="tags">
